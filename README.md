@@ -78,20 +78,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment on Vercel
-
-The easiest way to deploy this application is using **Vercel** with **Vercel Postgres**.
-
-1. Push this code to a GitHub repository.
-2. Log in to [Vercel](https://vercel.com/) and click **Add New Project**.
-3. Import your GitHub repository.
-4. Once imported, navigate to the project's **Storage** tab.
-5. Click **Create Database** -> **Vercel Postgres**. Follow the prompts to create it. Vercel will automatically inject the `POSTGRES_URL` into your environment variables.
-6. Navigate to the **Settings > Environment Variables** tab and add a new variable:
-   - `JWT_SECRET`: (Enter a secure, random string)
-7. Go to the **Deployments** tab and click **Redeploy**. 
-   *(The `postinstall` script in `package.json` ensures the Prisma Client is automatically generated during deployment).*
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
