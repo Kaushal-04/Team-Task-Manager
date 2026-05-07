@@ -18,11 +18,11 @@ A full-stack web application designed for efficient team collaboration and proje
 
 - **Frontend**: [Next.js (App Router)](https://nextjs.org/) & React
 - **Backend**: Next.js API Routes (Serverless)
-- **Database**: PostgreSQL (via [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres))
+- **Database**: PostgreSQL (via [Railway](https://railway.app/))
 - **ORM**: [Prisma](https://www.prisma.io/)
 - **Authentication**: Custom JWT implementation using `jose` and `bcryptjs`
 - **Styling**: Vanilla CSS Modules
-- **Deployment**: [Vercel](https://vercel.com/)
+- **Deployment**: [Railway](https://railway.app/)
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Create a `.env` file in the root of the project and add your database connection
 
 ```env
 # Create a .env file and add these variables
-POSTGRES_URL="postgres://user:password@host:port/database"
+DATABASE_URL="postgresql://postgres:password@host:port/railway"
 JWT_SECRET="your-super-secret-key-change-in-production"
 ```
 
@@ -77,6 +77,21 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Deployment on Railway
+
+The easiest way to deploy this application is using **Railway**, which perfectly supports Next.js applications and PostgreSQL databases out-of-the-box.
+
+1. Push this code to a GitHub repository.
+2. Log in to [Railway](https://railway.app/) and click **New Project**.
+3. Select **Deploy from GitHub repo** and choose your repository.
+4. Once the app service is created, click **New** -> **Database** -> **Add PostgreSQL**.
+5. After the database provisions, click on the **PostgreSQL** service, go to the **Connect** tab, and copy the `DATABASE_URL`.
+6. Go back to your Next.js app service in Railway, click on the **Variables** tab, and add:
+   - `DATABASE_URL`: (Paste the URL you copied)
+   - `JWT_SECRET`: (Enter a secure, random string)
+7. Railway will automatically inject the variables, run the `postinstall` script (`prisma generate`), and build your Next.js application.
+8. Go to the **Settings** tab of your app service, and under **Public Networking**, click **Generate Domain** to make your app publicly accessible.
 
 ## License
 
